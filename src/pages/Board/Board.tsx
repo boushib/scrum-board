@@ -10,35 +10,32 @@ const Board = () => {
   const [selectedStory, setSelectedStory] = useState<Story>()
 
   useEffect(() => {
-    setStories(STORIES)
+    const storedStories = localStorage.getItem('stories')
+
+    if (!storedStories) {
+      localStorage.setItem('stories', JSON.stringify(STORIES))
+    }
+
+    const stories = storedStories
+      ? JSON.parse(storedStories)
+      : setStories(STORIES)
+    setStories(stories)
   }, [])
 
   return (
     <div className="board page">
       <div className="container">
         <div className="board__grid">
-          <BoardCol
-            title="Backlog"
-            stories={stories.filter((s) => s.status === StoryStatus.BACKLOG)}
-            onOpenStory={setSelectedStory}
-          />
-          <BoardCol
-            title="TODO"
-            stories={stories.filter((s) => s.status === StoryStatus.TODO)}
-            onOpenStory={setSelectedStory}
-          />
-          <BoardCol
-            title="In Progress"
-            stories={stories.filter(
-              (s) => s.status === StoryStatus.IN_PROGRESS
-            )}
-            onOpenStory={setSelectedStory}
-          />
-          <BoardCol
-            title="Done"
-            stories={stories.filter((s) => s.status === StoryStatus.DONE)}
-            onOpenStory={setSelectedStory}
-          />
+          {(Object.keys(StoryStatus) as Array<keyof typeof StoryStatus>).map(
+            (key) => (
+              <BoardCol
+                status={StoryStatus[key]}
+                stories={stories.filter((s) => s.status === StoryStatus[key])}
+                onOpenStory={setSelectedStory}
+                key={key}
+              />
+            )
+          )}
         </div>
       </div>
       {selectedStory && (
