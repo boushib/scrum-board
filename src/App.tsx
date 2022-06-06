@@ -1,8 +1,8 @@
-import Home from './pages/Home'
+import Board from './pages/Board'
 
 const App = () => (
   <div className="App">
-    <Home />
+    <Board />
   </div>
 )
 
