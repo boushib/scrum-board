@@ -3,10 +3,11 @@ import './StoryOverview.sass'
 
 interface Props {
   story: Story
+  onClick: () => void
 }
 
-const StoryOverview = ({ story }: Props) => (
-  <div className="story-overview">
+const StoryOverview = ({ story, onClick }: Props) => (
+  <div className="story-overview" onClick={onClick}>
     <div className="story-overview__description">{story.description}</div>
     <div className="story-overview__footer">
       <div className="story-overview__id">{story.id}</div>

@@ -1,7 +1,7 @@
 import Board from './pages/Board'
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <Board />
   </div>
 )
