@@ -1,6 +1,8 @@
+import Home from './pages/Home'
+
 const App = () => (
   <div className="App">
-    <h1>Scrum Board</h1>
+    <Home />
   </div>
 )
 
