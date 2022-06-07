@@ -22,6 +22,14 @@ const Board = () => {
     setStories(stories)
   }, [])
 
+  const handleUpdateStory = (storyId: string, status: StoryStatus) => {
+    const _stories = [...stories]
+    const index = _stories.findIndex((s) => s.id === storyId)
+    _stories[index].status = status
+    localStorage.setItem('stories', JSON.stringify(_stories))
+    setStories(_stories)
+  }
+
   return (
     <div className="board page">
       <div className="container">
@@ -32,6 +40,7 @@ const Board = () => {
                 status={StoryStatus[key]}
                 stories={stories.filter((s) => s.status === StoryStatus[key])}
                 onOpenStory={setSelectedStory}
+                onUpdateStory={handleUpdateStory}
                 key={key}
               />
             )

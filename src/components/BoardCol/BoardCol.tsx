@@ -6,9 +6,10 @@ interface Props {
   stories: Array<Story>
   status: StoryStatus
   onOpenStory: (story: Story) => void
+  onUpdateStory: (storyId: string, status: StoryStatus) => void
 }
 
-const BoardCol = ({ status, stories, onOpenStory }: Props) => {
+const BoardCol = ({ status, stories, onOpenStory, onUpdateStory }: Props) => {
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
   }
@@ -28,14 +29,10 @@ const BoardCol = ({ status, stories, onOpenStory }: Props) => {
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     const storyId = e.dataTransfer.getData('storyId')
-    const target = e.currentTarget as HTMLDivElement
-    const story = document.getElementById(storyId)
-    story && target.appendChild(story)
-    const storedStories = localStorage.getItem('stories')
-    const stories: Array<Story> = storedStories ? JSON.parse(storedStories) : []
-    const index = stories.findIndex((s) => s.id === storyId)
-    stories[index].status = status
-    localStorage.setItem('stories', JSON.stringify(stories))
+    // const target = e.currentTarget as HTMLDivElement
+    // const story = document.getElementById(storyId)
+    // story && target.appendChild(story)
+    onUpdateStory(storyId, status)
   }
 
   return (
