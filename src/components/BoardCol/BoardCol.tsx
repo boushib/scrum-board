@@ -38,7 +38,7 @@ const BoardCol = ({
         <StoryOverview story={s} onClick={() => onOpenStory(s)} key={s.id} />
       ))}
       <div
-        className="board-col__create-story"
+        className="board-col__add"
         onClick={() => onCreateStory(status)}
         role="button"
       >
