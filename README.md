@@ -1,6 +1,6 @@
-# Scrum Board
+# Scrumify
 
-_Scrum Board_ is a Scrum stories management tool similar to _JIRA_ built for one of my job interviews using `React` & `TypeScript`.
+_Scrumify_ is a Scrum stories management tool similar to _JIRA_ built for one of my job interviews using `React` & `TypeScript`.
 
 ## Dependencies
 
