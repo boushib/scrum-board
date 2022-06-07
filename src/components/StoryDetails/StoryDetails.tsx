@@ -1,5 +1,6 @@
 import CloseIcon from '../../icons/Close'
 import { Story } from '../../models'
+import { getTitleFtomStatus } from '../../utils'
 import './StoryDetails.sass'
 
 interface Props {
@@ -19,7 +20,7 @@ const StoryDetails = ({ story, onClose }: Props) => (
       <hr />
       <div className="story__status">
         <span>Status:</span>
-        <div className="tag">{story.status.toLowerCase()}</div>
+        <div className="tag">{getTitleFtomStatus(story.status)}</div>
       </div>
       <div className="story__assignee">
         <span>Assignee:</span>

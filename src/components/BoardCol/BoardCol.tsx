@@ -1,4 +1,5 @@
 import { Story, StoryStatus } from '../../models'
+import { getTitleFtomStatus } from '../../utils'
 import StoryOverview from '../StoryOverview'
 import './BoardCol.sass'
 
@@ -14,19 +15,6 @@ const BoardCol = ({ status, stories, onOpenStory, onUpdateStory }: Props) => {
     e.preventDefault()
   }
 
-  const getTitle = () => {
-    switch (status) {
-      case StoryStatus.TODO:
-        return 'TODO'
-      case StoryStatus.IN_PROGRESS:
-        return 'In Progress'
-      case StoryStatus.DONE:
-        return 'Done'
-      default:
-        return 'Backlog'
-    }
-  }
-
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     const storyId = e.dataTransfer.getData('storyId')
     // const target = e.currentTarget as HTMLDivElement
@@ -38,7 +26,8 @@ const BoardCol = ({ status, stories, onOpenStory, onUpdateStory }: Props) => {
   return (
     <div className="board-col" onDrop={handleDrop} onDragOver={handleDragOver}>
       <div className="board-col__title">
-        {getTitle()} - {stories.length} issue{stories.length === 1 ? '' : 's'}
+        {getTitleFtomStatus(status)} - {stories.length} issue
+        {stories.length === 1 ? '' : 's'}
       </div>
       <hr />
       {stories.map((s) => (
