@@ -8,18 +8,22 @@ interface Props {
   status: StoryStatus
   onOpenStory: (story: Story) => void
   onUpdateStory: (storyId: string, status: StoryStatus) => void
+  onCreateStory: (status: StoryStatus) => void
 }
 
-const BoardCol = ({ status, stories, onOpenStory, onUpdateStory }: Props) => {
+const BoardCol = ({
+  status,
+  stories,
+  onOpenStory,
+  onUpdateStory,
+  onCreateStory,
+}: Props) => {
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
   }
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     const storyId = e.dataTransfer.getData('storyId')
-    // const target = e.currentTarget as HTMLDivElement
-    // const story = document.getElementById(storyId)
-    // story && target.appendChild(story)
     onUpdateStory(storyId, status)
   }
 
@@ -33,6 +37,13 @@ const BoardCol = ({ status, stories, onOpenStory, onUpdateStory }: Props) => {
       {stories.map((s) => (
         <StoryOverview story={s} onClick={() => onOpenStory(s)} key={s.id} />
       ))}
+      <div
+        className="board-col__create-story"
+        onClick={() => onCreateStory(status)}
+        role="button"
+      >
+        New Story
+      </div>
     </div>
   )
 }
