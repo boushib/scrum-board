@@ -5,6 +5,7 @@
   left: 0
   width: 100%
   border-bottom: 1px solid rgba(#fff, .05)
+  z-index: 999
 
   &__container
     display: flex
@@ -20,20 +21,60 @@
     -webkit-text-fill-color: transparent
 
   &__user
-    width: 48px
-    height: 48px
-    background-size: cover
-    background-position: center
-    border-radius: 50%
     position: relative
-    cursor: pointer
+    overflow: visible
 
-    &::before
-      content: ''
-      position: absolute
-      right: 2px
-      top: 2px
-      width: 10px
-      height: 10px
+    &:hover
+      .nav__user__dropdown
+        visibility: visible
+
+    &__avatar
+      width: 48px
+      height: 48px
+      background-size: cover
+      background-position: center
       border-radius: 50%
-      background-color: var(--color-success)
+      position: relative
+      cursor: pointer
+
+      &::before
+        content: ''
+        position: absolute
+        right: 2px
+        top: 2px
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background-color: var(--color-success)
+
+    &__dropdown
+      min-width: 200px
+      padding: 20px 24px
+      background-color: var(--color-accent)
+      border-radius: 12px
+      position: absolute
+      top: 46px
+      right: 0
+      display: flex
+      flex-direction: column
+      gap: 12px
+      visibility: hidden
+      transition: visibility 0.3s ease-in-out
+
+      &::before
+        content: ""
+        position: absolute
+        right: 16px
+        top: -6px
+        height: 16px
+        width: 16px
+        background-color: var(--color-accent)
+        transform: rotate(45deg)
+        transform-origin: center
+
+      &__item
+        cursor: pointer
+        transition: color 0.3s ease-in-out
+
+        &:hover
+          color: var(--color-primary)
