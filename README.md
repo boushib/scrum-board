@@ -7,6 +7,9 @@ _Scrumify_ is a Scrum stories management tool similar to _JIRA_ built for one of
 - Node.js
 - TypeScript
 
+## Demo
+https://scrumify.onrender.com/
+
 ## Dev Environment
 
 - Install dependencies using
