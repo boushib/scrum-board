@@ -1,12 +1,18 @@
 // import Button from '../Button'
+import ThemeSwitch from '../ThemeSwitch'
 import './Navbar.sass'
 
-const Navbar = () => (
+interface Props {
+  isLight: boolean
+  onThemeChange: () => void
+}
+
+const Navbar = ({ isLight, onThemeChange }: Props) => (
   <nav className="nav">
     <div className="container nav__container">
       <div className="nav__logo">Scrumify</div>
       <div className="nav__tail">
-        {/* <Button>Login</Button> */}
+        <ThemeSwitch isLight={isLight} onChange={onThemeChange} />
         <div className="nav__user">
           <div
             style={{
