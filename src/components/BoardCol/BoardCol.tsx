@@ -1,7 +1,7 @@
-import { Story, StoryStatus } from '../../models'
-import { getTitleFtomStatus } from '../../utils'
-import StoryOverview from '../StoryOverview'
-import './BoardCol.sass'
+import { Story, StoryStatus } from "@/models"
+import { getTitleFtomStatus } from "@/utils"
+import StoryOverview from "@/components/StoryOverview"
+import "./BoardCol.sass"
 
 interface Props {
   stories: Array<Story>
@@ -23,7 +23,7 @@ const BoardCol = ({
   }
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    const storyId = e.dataTransfer.getData('storyId')
+    const storyId = e.dataTransfer.getData("storyId")
     onUpdateStory(storyId, status)
   }
 
@@ -31,7 +31,7 @@ const BoardCol = ({
     <div className="board-col" onDrop={handleDrop} onDragOver={handleDragOver}>
       <div className="board-col__title">
         {getTitleFtomStatus(status)} - {stories.length} issue
-        {stories.length === 1 ? '' : 's'}
+        {stories.length === 1 ? "" : "s"}
       </div>
       <hr />
       {stories.map((s) => (

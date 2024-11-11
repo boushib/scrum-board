@@ -1,5 +1,5 @@
-import { Story } from '../../models'
-import './StoryOverview.sass'
+import { Story } from "@/models"
+import "./StoryOverview.sass"
 
 interface Props {
   story: Story
@@ -8,7 +8,7 @@ interface Props {
 
 const StoryOverview = ({ story, onClick }: Props) => {
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData('storyId', story.id)
+    e.dataTransfer.setData("storyId", story.id)
   }
 
   return (

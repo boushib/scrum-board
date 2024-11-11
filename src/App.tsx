@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Board from './pages/Board'
+import { useEffect, useState } from "react"
+import Navbar from "@/components/Navbar/"
+import Board from "@/pages/Board"
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark')
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark")
 
   useEffect(() => {
-    localStorage.setItem('theme', theme)
+    localStorage.setItem("theme", theme)
   }, [theme])
 
   return (
     <div className="app" data-theme={theme}>
       <Navbar
-        isLight={theme === 'light'}
-        onThemeChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        isLight={theme === "light"}
+        onThemeChange={() => setTheme(theme === "dark" ? "light" : "dark")}
       />
       <Board />
     </div>

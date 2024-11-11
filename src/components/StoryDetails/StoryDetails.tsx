@@ -1,7 +1,7 @@
-import CloseIcon from '../../icons/Close'
-import { Story } from '../../models'
-import { getTitleFtomStatus } from '../../utils'
-import './StoryDetails.sass'
+import CloseIcon from "@/icons/Close"
+import { Story } from "@/models"
+import { getTitleFtomStatus } from "@/utils"
+import "./StoryDetails.sass"
 
 interface Props {
   story: Story

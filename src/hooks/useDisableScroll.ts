@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect } from "react"
 
 export const useDisableScroll = () => {
   useEffect(() => {
-    document.body.style.overflowY = 'hidden'
+    document.body.style.overflowY = "hidden"
     return () => {
-      document.body.style.overflowY = 'visible'
+      document.body.style.overflowY = "visible"
     }
   }, [])
 }

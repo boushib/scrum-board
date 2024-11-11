@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import CloseIcon from '../../icons/Close'
-import { Story, StoryStatus } from '../../models'
-import Button from '../Button'
-import FormInput from '../FormInput'
-import Textarea from '../Textarea'
-import './CreateStory.sass'
+import { useState } from "react"
+import CloseIcon from "@/icons/Close"
+import { Story, StoryStatus } from "@/models"
+import Button from "@/components/Button"
+import FormInput from "@/components/FormInput"
+import Textarea from "@/components/Textarea"
+import "./CreateStory.sass"
 
 interface Props {
   status: StoryStatus
@@ -14,8 +14,8 @@ interface Props {
 }
 
 const CreateStory = ({ status, storiesLength, onCreate, onClose }: Props) => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
 
   const handleCreateStory = () => {
     // TODO - Handle showing error if any
@@ -25,7 +25,7 @@ const CreateStory = ({ status, storiesLength, onCreate, onClose }: Props) => {
         title,
         description,
         status,
-        assignee: 'El Hassane', // hardcode assignee for now
+        assignee: "El Hassane", // hardcode assignee for now
       }
       onCreate(story)
     }

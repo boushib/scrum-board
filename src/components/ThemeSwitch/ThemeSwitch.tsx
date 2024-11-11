@@ -1,6 +1,6 @@
-import DarkModeIcon from '../../icons/DarkMode'
-import LightModeIcon from '../../icons/LightMode'
-import './ThemeSwitch.sass'
+import DarkModeIcon from "@/icons/DarkMode"
+import LightModeIcon from "@/icons/LightMode"
+import "./ThemeSwitch.sass"
 
 interface Props {
   isLight: boolean

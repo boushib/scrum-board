@@ -1,5 +1,5 @@
-import classNames from 'classnames'
-import './Button.sass'
+import classNames from "classnames"
+import "./Button.sass"
 
 interface Props {
   children: React.ReactNode
@@ -12,7 +12,7 @@ const Button = ({ children, isDisabled, isSecondary, onClick }: Props) => (
   <button
     className={classNames({
       btn: true,
-      'btn--secondary': isSecondary,
+      "btn--secondary": isSecondary,
     })}
     disabled={isDisabled}
     onClick={onClick}

@@ -1,6 +1,6 @@
 // import Button from '../Button'
-import ThemeSwitch from '../ThemeSwitch'
-import './Navbar.sass'
+import ThemeSwitch from "@/components/ThemeSwitch"
+import "./Navbar.sass"
 
 interface Props {
   isLight: boolean

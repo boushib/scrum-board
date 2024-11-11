@@ -1,4 +1,4 @@
-import './Textarea.sass'
+import "./Textarea.sass"
 
 interface Props {
   value: string

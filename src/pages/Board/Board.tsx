@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import BoardCol from '../../components/BoardCol'
-import CreateStory from '../../components/CreateStory'
-import StoryDetails from '../../components/StoryDetails'
-import { STORIES } from '../../constants'
-import { Story, StoryStatus } from '../../models'
-import './Board.sass'
+import { useEffect, useState } from "react"
+import BoardCol from "@/components/BoardCol"
+import CreateStory from "@/components/CreateStory"
+import StoryDetails from "@/components/StoryDetails"
+import { STORIES } from "@/constants"
+import { Story, StoryStatus } from "@/models"
+import "./Board.sass"
 
 const Board = () => {
   const [stories, setStories] = useState<Array<Story>>([])
@@ -12,10 +12,10 @@ const Board = () => {
   const [selectedStatus, setSelectedStatus] = useState<StoryStatus>()
 
   useEffect(() => {
-    const storedStories = localStorage.getItem('stories')
+    const storedStories = localStorage.getItem("stories")
 
     if (!storedStories) {
-      localStorage.setItem('stories', JSON.stringify(STORIES))
+      localStorage.setItem("stories", JSON.stringify(STORIES))
     }
 
     const stories = storedStories
@@ -28,14 +28,14 @@ const Board = () => {
     const _stories = [...stories]
     const index = _stories.findIndex((s) => s.id === storyId)
     _stories[index].status = status
-    localStorage.setItem('stories', JSON.stringify(_stories))
+    localStorage.setItem("stories", JSON.stringify(_stories))
     setStories(_stories)
   }
 
   const handleStoryCreated = (story: Story) => {
     const _stories = [...stories, story]
     setStories(_stories)
-    localStorage.setItem('stories', JSON.stringify(_stories))
+    localStorage.setItem("stories", JSON.stringify(_stories))
     setSelectedStatus(undefined)
   }
 
