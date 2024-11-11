@@ -15,17 +15,17 @@ https://scrumify.onrender.com/
 - Install dependencies using
 
 ```md
-yarn # or npm install
+pnpm i
 ```
 
 - Run the dev server
 
 ```md
-yarn dev # or npm run dev
+pnpm run dev
 ```
 
 - Build the app for production
 
 ```md
-yarn build # or npm run build
+pnpm run build
 ```
